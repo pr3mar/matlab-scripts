@@ -24,15 +24,15 @@ data_len = length(data);
  
 result = dec2bin(0 , 32 ) - '0';
 for k=1:data_len
-temp = dec2bin( data(k),32 ) - '0';
-for m = 1:32
-if result(32) ~= temp(m)
-result(1:32) = [ 0 result(1:31) ];
-result = xor(result,gx);
-else
-result(1:32) = [0 result(1:31)];
-end
-end
+  temp = dec2bin( data(k),32 ) - '0';
+  for m = 1:32
+   if result(32) ~= temp(m)
+    result(1:32) = [ 0 result(1:31) ];
+    result = xor(result,gx);
+   else
+    result(1:32) = [0 result(1:31)];
+   end
+  end
 end
  
 str = num2str(fliplr(result));
